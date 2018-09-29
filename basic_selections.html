@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <title>d3.js basic selections</title>
+
+    <style>
+        .big {
+            font-size: 34px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="items">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+
+    <script>
+        // select all li
+        d3.selectAll('li').style('color', 'green');
+        
+        // select specific li
+        d3.select('li:nth-child(3n)').style('color', 'blue');
+
+        // change content
+        d3.selectAll('li:nth-child(even)').html('This is an even number');
+
+        // add a class
+        d3.selectAll('li:nth-child(4)').classed('big', true);
+    </script>
+</body>
+</html>
