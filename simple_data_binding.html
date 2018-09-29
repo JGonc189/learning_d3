@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <title>d3.js basic selections</title>
+
+</head>
+<body>
+
+    <p>Hi my name is <span id="name"></span></p>
+    <ul class="items">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+
+    <script>
+        let numArr = [1, 2, 3, 4, 5, 6, 100, 500];
+
+        let name = "steeveeeee";
+
+        // bind to li tags
+        // d3.selectAll('.items li')
+        //     .data(numArr)
+        //     .text(function(data){
+        //         return `This is Item Number ${data}`
+        //     });
+    
+
+        // change styles with data
+
+        // d3.selectAll('.items li')
+        //     .data(numArr)
+        //     .style('font-size', function(data) {
+        //         return data + 'px';
+        //     });
+
+        // adding more nodes to the dom
+
+        let li = d3.select('body').selectAll('.items li')
+            .data(numArr)
+            .text(function(data) {
+            return `This is number ${data}`;
+            });
+
+        li.enter().append('li')
+            .text(function(data) {
+            return `This is number ${data}`;
+            });
+
+        li.exit().remove();
+        
+        // binding to an id
+        d3.select('#name').text(name);
+    </script>
+</body>
+</html>
